@@ -1,523 +1,505 @@
-# The Android SysAdmin Vault: 173 Power User Tools
+# 🛡️ Android SysAdmin Vault
 
-> **"Your phone is a pocket server, not a consumption device."**
+<div align="center">
 
-![Status: Maintained](https://img.shields.io/badge/Status-Maintained-green?style=for-the-badge&logo=github)
-![License: MIT](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge&logo=open-source-initiative)
-![Platform: Android](https://img.shields.io/badge/Platform-Android-android?style=for-the-badge&logo=android)
-![Root: Optional](https://img.shields.io/badge/Root-Optional-orange?style=for-the-badge&logo=su)
-![Apps & Tools: 173](https://img.shields.io/badge/Apps_%26_Tools-173-purple?style=for-the-badge&logo=google-play)
+![Android SysAdmin Vault](https://img.shields.io/badge/Android-SysAdmin_Vault-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
 
-This repository is a curated collection of the most powerful, non-root **and** root utilities for Android System Administrators, Developers, and Power Users. The goal is simple: **Total device control.**
+**The Ultimate Arsenal for Android Power Users, SysAdmins, and Security Researchers.**
 
-These tools allow you to debug networks, manage packages, script automation, host servers, and harden security—all open source and verified.
+[Contributing](CONTRIBUTING.md) • [Report Broken Link](../../issues) • [Request App](../../issues)
 
-## ⚠️ Disclaimer
-*   **Power User Territory:** Some tools listed here (especially Root tools) can brick your device if misused. Always backup.
-*   **FOSS Focus:** We prioritize Free and Open Source Software.
+</div>
 
 ---
 
-## 📚 Table of Contents
-1. [The "Core" Toolkit](#1-the-core-toolkit)
-2. [Package Management](#2-package-management)
-3. [Root Authority & System](#3-root-authority--system)
-4. [Network & Security](#4-network--security)
-5. [Identity & Authentication](#5-identity--authentication)
-6. [Communication & P2P](#6-communication--p2p)
-7. [Development & Scripting](#7-development--scripting)
-8. [Data Sovereignty & Office](#8-data-sovereignty--office)
-9. [Hardware Hacking](#9-hardware-hacking)
-10. [Privacy & De-Googling](#10-privacy--de-googling)
-11. [Navigation & Maps](#11-navigation--maps)
-12. [IoT & Home Automation](#12-iot--home-automation)
-13. [The CLI Arsenal (Termux)](#13-the-cli-arsenal-termux)
-14. [The Root Ecosystem](#14-the-root-ecosystem)
-15. [Pocket Servers](#15-pocket-servers)
-16. [Forensics & Reverse Engineering](#16-forensics--reverse-engineering)
-17. [Advanced Termux Add-ons](#17-advanced-termux-add-ons)
-18. [The Mega-Repos & Linux](#18-the-mega-repos--linux)
-19. [The "Kill List" Script](#19-the-kill-list-script)
-20. [Contribute](#20-contribute)
+## 📜 Manifesto
+
+This repository is a curated collection of **250+** (growing to 500+) "Hidden" and "Power User" tools for Android. 
+We believe your phone is a pocket server, a penetration testing deck, and a privacy fortress.
+
+**Strictly NO:**
+*   ❌ Battery Boosters / "Cleaners"
+*   ❌ Bloatware / Social Media
+*   ❌ Dead Links
+
+**Strictly YES:**
+*   ✅ Open Source (GitHub/F-Droid)
+*   ✅ Network Sniffers & Scanners
+*   ✅ Terminal Emulators & Shells
+*   ✅ Reverse Engineering Tools
 
 ---
 
-## 1. The "Core" Toolkit
-*The foundation for system modification and package management (Non-Root friendly).*
+## 📑 Table of Contents
 
-- **[Shizuku](https://github.com/RikkaApps/Shizuku)**
-  - **Why SysAdmin:** Acts as a bridge to allow apps to use system APIs directly via ADB, bypassing normal permission restrictions without root.
-- **[Hail](https://github.com/aistra0528/Hail)**
-  - **Why SysAdmin:** Freezes (disables) unwanted apps and background services on demand. Prevents bloatware from consuming RAM/Battery.
-- **[App Manager](https://github.com/MuntashirAkon/AppManager)**
-  - **Why SysAdmin:** The `htop` of Android apps. View activities, services, receivers, and signatures. Block trackers and modify permissions at a low level.
-- **[App Ops](https://github.com/RikkaApps/AppOps)**
-  - **Why SysAdmin:** Manages hidden permissions (AppOps) that the standard settings menu doesn't show, like "Run in Background" or "Clipboard Access".
-- **[Inure App Manager](https://github.com/Hamza417/Inure)**
-  - **Why SysAdmin:** A beautiful, highly technical application manager and debloater with terminal access and sensor analysis.
-- **[KDE Connect](https://github.com/KDE/kdeconnect-android)**
-  - **Why SysAdmin:** Seamless integration with Linux/Windows desktops. Shared clipboard, remote input, command execution, and file transfer over LAN.
-
----
-
-## 2. Package Management
-*Tools to install, update, and manage software sources outside the Play Store.*
-
-- **[Obtainium](https://github.com/ImranR98/Obtainium)**
-  - **Why SysAdmin:** Gets updates directly from GitHub/GitLab Releases pages. Bypasses app stores entirely for bleeding-edge FOSS tools.
-- **[Neo Store](https://github.com/NeoApplications/Neo-Store)**
-  - **Why SysAdmin:** Modern, feature-rich F-Droid client. Supports third-party repos, fast index syncing, and ignores updates for specific packages.
-- **[Aurora Store](https://github.com/WhyOrean/AuroraStore)**
-  - **Why SysAdmin:** Anonymous Google Play Store client. Download apps without a Google account and spoof device information.
-- **[Droid-ify](https://github.com/Droid-ify/Droid-ify)**
-  - **Why SysAdmin:** Material F-Droid client with a modern UI and quick repo syncing.
+*   [💻 Terminal & Shell](#-terminal--shell)
+*   [📡 Network Analysis & Scanning](#-network-analysis--scanning)
+*   [🔐 Privacy & Security](#-privacy--security)
+*   [🧬 Reverse Engineering & Analysis](#-reverse-engineering--analysis)
+*   [⚡ Root & System Internals](#-root--system-internals)
+*   [🛠️ Development & Scripting](#-development--scripting)
+*   [📻 Hardware Hacking (SDR/NFC/USB)](#-hardware-hacking-sdrnfcusb)
+*   [🖥️ Remote Management (SSH/VNC)](#-remote-management-sshvnc)
+*   [🤖 Automation & Sync](#-automation--sync)
+*   [📦 Package Managers & Repos](#-package-managers--repos)
+*   [🦊 Firefox Add-ons (Privacy)](#-firefox-add-ons-privacy)
+*   [⚡ Magisk & LSPosed Modules](#-magisk--lsposed-modules)
 
 ---
 
-## 3. Root Authority & System
-*Tools that require Root (Magisk/KernelSU) or Shizuku for deep system modification.*
+> **Note:** Use `<details>` blocks to expand categories. Icons indicate source:
+> <br>
+> 🐙 = **GitHub** | 🛡️ = **F-Droid** | 🦊 = **GitLab** | ▶️ = **Play Store**
 
-- **[Magisk](https://github.com/topjohnwu/Magisk)**
-  - **Why SysAdmin:** The standard for systemless rooting. Allows modification of the system partition without actually touching it.
-- **[KernelSU](https://github.com/tiann/KernelSU)**
-  - **Why SysAdmin:** Kernel-based root solution. Offers better stealth and control than user-space root solutions.
-- **[SmartPack-Kernel Manager](https://github.com/SmartPack/SmartPack-Kernel-Manager)**
-  - **Why SysAdmin:** The active fork of Kernel Adiutor. Tweak CPU governors, I/O schedulers, and GPU frequencies for performance or battery.
-- **[AdAway](https://github.com/AdAway/AdAway)**
-  - **Why SysAdmin:** System-level ad blocking using `hosts` file modification. Blocks ads in all apps, not just browsers.
-- **[AFWall+](https://github.com/ukanth/afwall)**
-  - **Why SysAdmin:** `iptables` frontend. Whitelist-based firewall to strictly control which apps can access data/WiFi.
-- **[Canta](https://github.com/samolego/Canta)**
-  - **Why SysAdmin:** Uninstall any app (including system bloatware) without root using Shizuku. Safer than manual ADB commands.
-- **[SuperFreezZ](https://gitlab.com/SuperFreezZ/SuperFreezZ)**
-  - **Why SysAdmin:** Lightweight background process freezer. Doesn't require accessibility services like Greenify; works via Shizuku or Root.
-- **[OAndBackupX](https://github.com/machiav3lli/oandbackupx)**
-  - **Why SysAdmin:** Powerful, open-source backup solution. Backs up apps + data to local storage or cloud. Neo Backup alternative.
-- **[MatLog](https://github.com/plusCubed/matlog)**
-  - **Why SysAdmin:** Real-time Logcat reader. Essential for debugging app crashes and system errors on the fly.
+<br>
 
-<details>
-<summary><b>🔻 Click to expand 50+ more Root Tools</b></summary>
 
-*   **[Neo Backup](https://github.com/NeoApplications/Neo-Backup)** - Open-source Titanium Backup alternative.
-*   **[SD Maid SE](https://github.com/d4rken-org/sdmaid-se)** - System cleaner and database optimizer.
-*   **[Termux:Boot](https://github.com/termux/termux-boot)** - Run scripts at device boot.
-*   **[USB Mountr](https://github.com/streetwalrus/android_usb_msd)** - Turn your phone into a bootable USB drive for PC repair.
-*   **[DriveDroid](https://softwarebakery.com/projects/drivedroid)** - Host ISO files as USB devices (requires kernel patching on newer Androids).
-*   **[AccA](https://github.com/MatteCarra/AccA)** - Advanced Charging Controller GUI. Limit charging to 80% to prolong battery life.
-*   **[CPU Info](https://github.com/kgv/cpu_info)** - Detailed hardware information (SoC, Ram, Sensors).
+### 📂 Terminal & Shell
+
+<details><summary>View 17 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [AnLinux](https://github.com/EXALAB/AnLinux-App) | Linux on Android helper. | [🐙](https://github.com/EXALAB/AnLinux-App) |
+| [Andronix](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix) | Linux on Android. | [▶️](https://play.google.com/store/apps/details?id=studio.com.techriz.andronix) |
+| [BusyBox](https://github.com/meefik/busybox) | BusyBox installer. | [🐙](https://github.com/meefik/busybox) |
+| [ConnectBot](https://github.com/connectbot/connectbot) | SSH Client. | [🐙](https://github.com/connectbot/connectbot) |
+| [Daedalus](https://github.com/iTXTech/Daedalus) | DNS modifier (No root). | [🐙](https://github.com/iTXTech/Daedalus) |
+| [JuiceSSH](https://play.google.com/store/apps/details?id=com.sonelli.juicessh) | Modern SSH Client. | [▶️](https://play.google.com/store/apps/details?id=com.sonelli.juicessh) |
+| [Material Terminal](https://github.com/yarolegovich/MaterialTerminal) | Customizable terminal. | [🐙](https://github.com/yarolegovich/MaterialTerminal) |
+| [NeoTerm](https://github.com/NeoTerm/NeoTerm) | Terminal emulator. | [🐙](https://github.com/NeoTerm/NeoTerm) |
+| [Termux](https://github.com/termux/termux-app) | The ultimate terminal emulator. | [🐙](https://github.com/termux/termux-app) |
+| [Termux:API](https://github.com/termux/termux-api) | Access Android API from CLI. | [🐙](https://github.com/termux/termux-api) |
+| [Termux:Boot](https://github.com/termux/termux-boot) | Run scripts at boot. | [🐙](https://github.com/termux/termux-boot) |
+| [Termux:Float](https://github.com/termux/termux-float) | Floating terminal window. | [🐙](https://github.com/termux/termux-float) |
+| [Termux:Styling](https://github.com/termux/termux-styling) | Customize Termux font/color. | [🐙](https://github.com/termux/termux-styling) |
+| [Termux:Tasker](https://github.com/termux/termux-tasker) | Tasker integration. | [🐙](https://github.com/termux/termux-tasker) |
+| [Termux:Widget](https://github.com/termux/termux-widget) | Run scripts from launcher. | [🐙](https://github.com/termux/termux-widget) |
+| [UserLAnd](https://github.com/CypherpunkArmory/UserLAnd) | Run Linux distros. | [🐙](https://github.com/CypherpunkArmory/UserLAnd) |
+| [VX ConnectBot](https://github.com/vx/connectbot) | Enhanced ConnectBot. | [🐙](https://github.com/vx/connectbot) |
 
 </details>
 
----
+### 📂 Network Analysis & Scanning
 
-## 4. Network & Security
-*Firewalls, packet sniffers, and encrypted DNS.*
+<details><summary>View 29 Apps</summary>
 
-### 🛡️ Defense & Analysis
-- **[PCAPdroid](https://github.com/emanuele-f/PCAPdroid)**
-  - **Why SysAdmin:** No-root packet capture (pcap) tool. Decrypts SSL/TLS traffic locally using a mitmproxy approach for debugging malicious app traffic.
-- **[InviZible Pro](https://github.com/Gedsh/InviZible)**
-  - **Why SysAdmin:** Comprehensive suite running Tor, I2P, and DNSCrypt simultaneously. Anonymizes traffic and bypasses censorship.
-- **[TrackerControl](https://github.com/TrackerControl/tracker-control-android)**
-  - **Why SysAdmin:** Monitors and blocks hidden data collection in apps. Visualizes where your data is going.
-- **[OONI Probe](https://github.com/ooni/probe-android)**
-  - **Why SysAdmin:** Measure internet censorship and speed. Detects blocked websites and middleboxes.
-- **[Orbot](https://github.com/guardianproject/orbot-android)**
-  - **Why SysAdmin:** The official Tor proxy. Routes traffic from specific apps or the entire device through the Tor network.
-- **[RethinkDNS](https://github.com/celzero/rethink-app)**
-  - **Why SysAdmin:** Granular firewall + DNS resolver. Block connections per app, per IP, or per country. View real-time connection logs.
-- **[NetGuard](https://github.com/M66B/NetGuard)**
-  - **Why SysAdmin:** Simple, battery-efficient firewall to block internet access for specific apps.
-- **[Port Authority](https://github.com/aaronjwood/PortAuthority)**
-  - **Why SysAdmin:** Fast port scanner and LAN host discovery tool. Essential for auditing local networks.
-- **[OpenVPN for Android](https://github.com/schwabe/ics-openvpn)**
-  - **Why SysAdmin:** The full-featured open source OpenVPN client. Supports complex configurations, tap/tun, and tasker integration.
-- **[URLCheck](https://github.com/TrianguloY/URLCheck)**
-  - **Why SysAdmin:** Intercepts link clicks to analyze/strip parameters (UTM tags) and scan via VirusTotal before opening in a browser.
-- **[Network Tools](https://github.com/yitsoshi/Network-Tools)**
-  - **Why SysAdmin:** Collection of network utilities like Ping, Traceroute, Port Scanner, DNS Lookup, and Whois.
-- **[Intra](https://github.com/Jigsaw-Code/intra)**
-  - **Why SysAdmin:** Protects against DNS manipulation and censorship using DNS-over-HTTPS.
-- **[Key Attestation](https://github.com/vvb2060/KeyAttestation)**
-  - **Why SysAdmin:** Verifies the cryptographic security chain of the device (TEE/StrongBox). Essential for checking device integrity.
 
-<details>
-<summary><b>🔻 Click to expand more Network Tools</b></summary>
-
-*   **[WireGuard](https://github.com/WireGuard/wireguard-android)** - Fast, modern VPN tunnel.
-*   **[Nebulo](https://github.com/Ch4t4r/Nebulo)** - DNS-over-HTTPS/TLS client with query logging.
-*   **[WiFiAnalyzer](https://github.com/VREMSoftwareDevelopment/WiFiAnalyzer)** - Optimize channel selection and debug signal strength (Open Source).
-*   **[Privacy Friendly WiFi Manager](https://github.com/SecUSo/privacy-friendly-wifi-manager)** - Schedule WiFi on/off based on location to prevent tracking.
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [AndrOBD](https://github.com/fr3ts0n/AndrOBD) | OBD Diagnostics. | [🐙](https://github.com/fr3ts0n/AndrOBD) |
+| [BifrostV](https://github.com/v2ray/bifrostv) | V2Ray client. | [🐙](https://github.com/v2ray/bifrostv) |
+| [Clash](https://github.com/Kr328/ClashForAndroid) | Rule-based tunnel. | [🐙](https://github.com/Kr328/ClashForAndroid) |
+| [Draeneg](https://play.google.com/store/apps/details?id=com.orange.labs.draeneg) | Traffic monitor. | [▶️](https://play.google.com/store/apps/details?id=com.orange.labs.draeneg) |
+| [HTTP Injector](https://play.google.com/store/apps/details?id=com.evozi.injector) | SSH/Proxy Injector. | [▶️](https://play.google.com/store/apps/details?id=com.evozi.injector) |
+| [Igniter](https://github.com/trojan-gfw/igniter) | Trojan proxy client. | [🐙](https://github.com/trojan-gfw/igniter) |
+| [Intercepter-NG](https://github.com/intercepter-ng/intercepter-ng) | Network toolkit (Root). | [🐙](https://github.com/intercepter-ng/intercepter-ng) |
+| [Invizible Pro](https://github.com/Gedsh/InviZible) | Tor, DNSCrypt, I2P. | [🐙](https://github.com/Gedsh/InviZible) |
+| [Kitsunebi](https://github.com/eycorsican/kitsunebi-android) | Proxy client. | [🐙](https://github.com/eycorsican/kitsunebi-android) |
+| [LanDroid](https://github.com/LanDroid/LanDroid) | Network tools. | [🐙](https://github.com/LanDroid/LanDroid) |
+| [NapsternetV](https://play.google.com/store/apps/details?id=com.napsternet.napsternetv) | V2Ray/Psiphon/SSH. | [▶️](https://play.google.com/store/apps/details?id=com.napsternet.napsternetv) |
+| [Nebulo](https://github.com/Ch4t4r/Nebulo) | DNS over HTTPS/TLS. | [🐙](https://github.com/Ch4t4r/Nebulo) |
+| [NetGuard](https://github.com/M66B/NetGuard) | No-root firewall. | [🐙](https://github.com/M66B/NetGuard) |
+| [Network Manager](https://github.com/MuntashirAkon/NetworkManager) | Network tools suite. | [🐙](https://github.com/MuntashirAkon/NetworkManager) |
+| [Nmap](https://nmap.org/download.html) | Network Mapper (via Termux). | [💻](https://nmap.org/download.html) |
+| [OONI Probe](https://github.com/ooni/probe-android) | Internet censorship testing. | [🐙](https://github.com/ooni/probe-android) |
+| [OpenVPN](https://github.com/schwabe/ics-openvpn) | OpenVPN Client. | [🐙](https://github.com/schwabe/ics-openvpn) |
+| [PCAPdroid](https://github.com/emanuele-f/PCAPdroid) | Capture traffic without root. | [🐙](https://github.com/emanuele-f/PCAPdroid) |
+| [PersonalDNSFilter](https://github.com/IngoZenz/personaldnsfilter) | DNS filter. | [🐙](https://github.com/IngoZenz/personaldnsfilter) |
+| [PingTools](https://play.google.com/store/apps/details?id=ua.com.streamsoft.pingtools) | Network utilities. | [▶️](https://play.google.com/store/apps/details?id=ua.com.streamsoft.pingtools) |
+| [Port Authority](https://github.com/aaronjwood/PortAuthority) | Port scanner. | [🐙](https://github.com/aaronjwood/PortAuthority) |
+| [RethinkDNS](https://github.com/celzero/rethink-app) | DNS + Firewall. | [🐙](https://github.com/celzero/rethink-app) |
+| [SagerNet](https://github.com/SagerNet/SagerNet) | Universal Proxy. | [🐙](https://github.com/SagerNet/SagerNet) |
+| [Shadowsocks](https://github.com/shadowsocks/shadowsocks-android) | Secure socks5 proxy. | [🐙](https://github.com/shadowsocks/shadowsocks-android) |
+| [Torque](https://github.com/pires/android-obd-reader) | OBD2 Car Hacking. | [🐙](https://github.com/pires/android-obd-reader) |
+| [V2RayNG](https://github.com/2dust/v2rayNG) | V2Ray Client. | [🐙](https://github.com/2dust/v2rayNG) |
+| [WiFi Analyzer](https://github.com/VREMSoftwareDevelopment/WiFiAnalyzer) | WiFi signal analysis. | [🐙](https://github.com/VREMSoftwareDevelopment/WiFiAnalyzer) |
+| [Wigle WiFi](https://github.com/wiglenet/wigle-wifi-wardriving) | Wardriving tool. | [🐙](https://github.com/wiglenet/wigle-wifi-wardriving) |
+| [WireGuard](https://github.com/WireGuard/wireguard-android) | Fast VPN tunnel. | [🐙](https://github.com/WireGuard/wireguard-android) |
 
 </details>
 
----
+### 📂 Privacy & Security
 
-## 5. Identity & Authentication
-*Password management, 2FA, and keys.*
+<details><summary>View 37 Apps</summary>
 
-- **[KeePassDX](https://github.com/Kunzisoft/KeePassDX)**
-  - **Why SysAdmin:** Material Design KeePass port. Offline password manager with support for keyfiles and YubiKey.
-- **[Aegis Authenticator](https://github.com/beemdevelopment/Aegis)**
-  - **Why SysAdmin:** The gold standard for 2FA. Encrypted backups, icon packs, custom grouping, and biometric unlock.
-- **[Bitwarden](https://github.com/bitwarden/android)**
-  - **Why SysAdmin:** Open source cloud password manager (can self-host with Vaultwarden). Essential for team credential sharing.
-- **[OpenKeychain](https://github.com/open-keychain/open-keychain)**
-  - **Why SysAdmin:** OpenPGP implementation for Android. Encrypt/decrypt files and emails, manage keys, and integrate with other apps.
-- **[FreeOTP+](https://github.com/helloworld1/FreeOTPPlus)**
-  - **Why SysAdmin:** Enhanced fork of FreeOTP. Supports exporting/importing settings, dark theme, and searching tokens.
 
----
-
-## 6. Communication & P2P
-*Secure, decentralized, and encrypted communication.*
-
-- **[Session](https://github.com/oxen-io/session-android)**
-  - **Why SysAdmin:** Private messenger with no metadata, no phone number required, and onion routing.
-- **[Briar](https://github.com/briar/briar)**
-  - **Why SysAdmin:** P2P messenger that works without internet (via Bluetooth/Wi-Fi). Ideal for off-grid comms.
-- **[Molly](https://github.com/mollyim/mollyim-android)**
-  - **Why SysAdmin:** Hardened fork of Signal with database encryption and Tor support.
-- **[Element](https://github.com/element-hq/element-android)**
-  - **Why SysAdmin:** Matrix client for decentralized, secure communication. Supports E2EE and self-hosting.
-
----
-
-## 7. Development & Scripting
-*Turn Android into a portable Linux workstation.*
-
-### 💻 Terminal & Automation
-- **[Termux](https://github.com/termux/termux-app)**
-  - **Why SysAdmin:** Full Linux environment. Run `ssh`, `git`, `python`, `nmap`, and `vim` directly on the device.
-- **[UserLAnd](https://github.com/CypherpunkArmory/UserLAnd)**
-  - **Why SysAdmin:** Run full Linux distros (Ubuntu, Kali, Debian) on Android without root using PRoot.
-- **[Linux Deploy](https://github.com/meefik/linuxdeploy)**
-  - **Why SysAdmin:** (Root) Deploys full Linux distros in a chroot environment for near-native performance.
-- **[HTTP Shortcuts](https://github.com/Waboodoo/HTTP-Shortcuts)**
-  - **Why SysAdmin:** Trigger complex REST API calls via home screen shortcuts. Ideal for controlling IoT devices or webhooks.
-- **[Acode](https://github.com/deadlyjack/Acode)**
-  - **Why SysAdmin:** Lightweight, high-performance code editor with syntax highlighting and FTP/SFTP support.
-- **[ConnectBot](https://github.com/connectbot/connectbot)**
-  - **Why SysAdmin:** The standard SSH client. robust, supports pubkey auth and port forwarding.
-- **[SimpleUsbTerminal](https://github.com/kai-morich/SimpleUsbTerminal)**
-  - **Why SysAdmin:** Connect to serial devices (routers, switches, Arduinos) via USB OTG. Essential for hardware debugging.
-- **[Hacker's Keyboard](https://github.com/klausw/hackerskeyboard)**
-  - **Why SysAdmin:** Provides a full 5-row PC keyboard layout with Ctrl, Alt, Esc, and Arrow keys. Critical for Termux/SSH usage.
-- **[MGit](https://github.com/maks/MGit)**
-  - **Why SysAdmin:** Full-featured Git client. Clone repos, commit changes, and push to remotes on the go.
-- **[GitTouch](https://github.com/GitTouch/GitTouch)**
-  - **Why SysAdmin:** Clean client for GitHub, GitLab, and Bitbucket. View issues, PRs, and code with syntax highlighting.
-- **[GitNex](https://github.com/GitNex/GitNex)**
-  - **Why SysAdmin:** Open-source Android client for Gitea/Forgejo. Manage issues, repositories, and organizations.
-
----
-
-## 8. Data Sovereignty & Office
-*File management, synchronization, and self-hosting clients.*
-
-### 💾 Storage & Sync
-- **[LocalSend](https://github.com/localsend/localsend)**
-  - **Why SysAdmin:** AirDrop alternative. Open-source, local-only file transfer between Android, iOS, Windows, and Linux. No external servers.
-- **[Syncthing](https://github.com/syncthing/syncthing-android)**
-  - **Why SysAdmin:** Decentralized, continuous file synchronization. Keep your Keepass database or notes synced across devices without a cloud provider.
-- **[Round Sync](https://github.com/newhinton/Round-Sync)**
-  - **Why SysAdmin:** Rclone GUI for Android. Encrypt/Decrypt and mount cloud storage (S3, GDrive, Dropbox) locally.
-- **[Nextcloud](https://github.com/nextcloud/android)**
-  - **Why SysAdmin:** Official client for self-hosted Nextcloud instances. Auto-upload photos, sync files, and manage cloud data.
-- **[DAVx5](https://github.com/bitfireAT/davx5-ose)**
-  - **Why SysAdmin:** Syncs Contacts, Calendars, and Tasks via CalDAV/CardDAV. Essential for de-googling and using Nextcloud/Radicale.
-- **[Joplin](https://github.com/laurent22/joplin)**
-  - **Why SysAdmin:** Open source note-taking capable of syncing with Nextcloud/S3. End-to-end encrypted by default.
-- **[Standard Notes](https://github.com/standardnotes/app)**
-  - **Why SysAdmin:** A secure and private notes app with end-to-end encryption.
-- **[Logseq](https://github.com/logseq/logseq)**
-  - **Why SysAdmin:** Privacy-first, open-source knowledge base. Works with local Markdown files, supports properties and bidirectional linking.
-- **[Material Files](https://github.com/zhanghai/MaterialFiles)**
-  - **Why SysAdmin:** Clean, root-capable file manager. Supports SMB, SFTP, and FTP servers.
-- **[Fossify File Manager](https://github.com/FossifyOrg/File-Manager)**
-  - **Why SysAdmin:** Fork of Simple File Manager. Clean, privacy-focused, and supports hidden files/root access navigation.
-- **[Seal](https://github.com/JunkFood02/Seal)**
-  - **Why SysAdmin:** GUI for `yt-dlp`. Downloads video/audio from thousands of sites with metadata control and format selection.
-- **[DiskUsage](https://github.com/IvanVolosyuk/diskusage)**
-  - **Why SysAdmin:** Treemap visualization of storage. Instantly identify which directories or cache files are eating your space.
-- **[RustDesk](https://github.com/rustdesk/rustdesk)**
-  - **Why SysAdmin:** Open-source remote desktop client (TeamViewer alternative). Self-hostable server for full control.
-- **[Librera](https://github.com/foobnix/LibreraReader)**
-  - **Why SysAdmin:** Versatile document reader (PDF, EPUB, MOBI, etc.) with text-to-speech and extensive customization.
-- **[MJ PDF](https://github.com/mudlej/MjPdfReader)**
-  - **Why SysAdmin:** Minimalist, fast, and open-source PDF viewer.
-- **[ImagePipe](https://github.com/kaangiray26/ImagePipe)**
-  - **Why SysAdmin:** Modify images before sharing: resize, crop, and remove EXIF tags to protect privacy.
-- **[Scrambled Exif](https://github.com/Fynn-F/ScrambledExif)**
-  - **Why SysAdmin:** Removes EXIF data from pictures before sharing them.
-
----
-
-## 9. Hardware Hacking
-*Sensors, Radio, and WiFi analysis.*
-
-### 📡 Signals
-- **[WiGLE](https://github.com/wiglenet/wigle-wifi-wardriving)**
-  - **Why SysAdmin:** Wardriving tool. Maps and logs WiFi/Bluetooth networks to a local database.
-- **[Phyphox](https://github.com/phyphox/phyphox-android)**
-  - **Why SysAdmin:** Access raw sensor data (Accelerometer, Gyroscope, Magnetometer). Useful for hardware diagnostics and physics experiments.
-- **[GPSTest](https://github.com/barbeau/gpstest)**
-  - **Why SysAdmin:** Detailed GNSS/GPS view. Check satellite fix status, accuracy, and raw NMEA data.
-- **[Binary Eye](https://github.com/markusfisch/BinaryEye)**
-  - **Why SysAdmin:** Pure, ad-free barcode/QR scanner. Reveals the raw payload text immediately without auto-executing malicious links.
-- **[SatStat](https://gitlab.com/mvglasow/satstat)**
-  - **Why SysAdmin:** Displays status of GPS, GLONASS, Galileo, etc., and sensor data. Useful for diagnosing location issues.
-
----
-
-## 10. Privacy & De-Googling
-*FOSS alternatives to proprietary spyware.*
-
-### 👁️ Privacy
-- **[Aurora Store](https://github.com/WhyOrean/AuroraStore)**
-  - **Why SysAdmin:** Anonymous Google Play Store client. Download apps without a Google account and spoof device information.
-- **[Neo Store](https://github.com/NeoApplications/Neo-Store)**
-  - **Why SysAdmin:** Modern, feature-rich F-Droid client. Supports third-party repos, updates, and fast package installation.
-- **[Insular](https://gitlab.com/secure-system/Insular)**
-  - **Why SysAdmin:** Fork of Island. Leverages Android's "Work Profile" to sandbox untrusted apps or run dual instances of apps (e.g., WhatsApp).
-- **[Shelter](https://github.com/PeterCxy/Shelter)**
-  - **Why SysAdmin:** Isolates big-tech apps in a work profile. Can "freeze" heavy apps when not in use.
-- **[K-9 Mail](https://github.com/thunderbird/thunderbird-android)**
-  - **Why SysAdmin:** Powerful email client with OpenPGP encryption support.
-- **[FairEmail](https://github.com/M66B/FairEmail)**
-  - **Why SysAdmin:** Advanced email client focusing on privacy. Displays full message headers, tracking pixel protection, and unlimited accounts.
-- **[Fossify Gallery](https://github.com/FossifyOrg/Gallery)**
-  - **Why SysAdmin:** Fork of Simple Gallery. No internet permission required, privacy-focused media viewer.
-- **[NewPipe](https://github.com/TeamNewPipe/NewPipe)**
-  - **Why SysAdmin:** YouTube frontend. No ads, background play, and download capability without a Google account.
-- **[Cromite](https://github.com/uazo/cromite)**
-  - **Why SysAdmin:** Chromium fork with built-in adblocking and privacy patches (Bromite successor).
-- **[Mull](https://github.com/DivestOS/Mull-Fenix)**
-  - **Why SysAdmin:** Privacy-hardened browser based on Mozilla Firefox.
-- **[Tor Browser](https://gitlab.torproject.org/tpo/applications/tor-browser)**
-  - **Why SysAdmin:** The official browser for Tor, providing access to the Tor network and onion services.
-
----
-
-## 11. Navigation & Maps
-*Offline maps and navigation tools.*
-
-- **[OsmAnd+](https://github.com/osmandapp/OsmAnd)**
-  - **Why SysAdmin:** Offline maps and navigation using OpenStreetMap data. Powerful rendering and routing capabilities.
-- **[Organic Maps](https://github.com/organicmaps/organicmaps)**
-  - **Why SysAdmin:** Privacy-focused offline maps. Fast, lightweight, and easy to use.
-
----
-
-## 12. IoT & Home Automation
-*Control your smart home and devices.*
-
-- **[Home Assistant](https://github.com/home-assistant/android)**
-  - **Why SysAdmin:** Official app for Home Assistant. Control all your smart devices from a single, open-source platform.
-- **[Gadgetbridge](https://codeberg.org/Freeyourgadget/Gadgetbridge)**
-  - **Why SysAdmin:** Connects your pebble, mi band, amazfit and other devices to your mobile phone without the vendor's closed source application.
-
----
-
-## 13. The CLI Arsenal (Termux)
-*Install these via `pkg install <name>` inside Termux. This list turns your shell into a weapon.*
-
-<details>
-<summary><b>🔻 Click to expand 50+ CLI Tools</b></summary>
-
-### Network Analysis & Transfer
-*   `nmap` - Network exploration tool and security / port scanner.
-*   `iperf3` - Perform network throughput tests.
-*   `rsync` - Fast remote file copy program (essential for backups).
-*   `curl` - Command line tool for transferring data with URLs.
-*   `wget` - Network downloader.
-*   `aria2` - High speed download utility with multi-protocol support.
-*   `openssh` - Secure shell client and server (sshd).
-*   `netcat-openbsd` - TCP/IP swiss army knife (`nc`).
-*   `dnsutils` - Bind tools including `dig` and `nslookup`.
-*   `whois` - Domain whois client.
-*   `tracepath` - Traces path to a network host discovering MTU.
-*   `mtr` - Network diagnostic tool (ping + traceroute).
-*   `tcpdump` - Command-line packet analyzer.
-*   `tshark` - Terminal-based Wireshark.
-*   `masscan` - TCP port scanner, spews SYN packets asynchronously.
-*   `socat` - Multipurpose relay (SOcket CAT).
-
-### Development & Scripting
-*   `git` - Distributed version control system.
-*   `python` - Python 3 programming language.
-*   `nodejs` - JavaScript runtime.
-*   `golang` - Go programming language.
-*   `rust` - Rust programming language.
-*   `ruby` - Ruby programming language.
-*   `php` - PHP scripting language.
-*   `lua` - Lua scripting language.
-*   `clang` - C language family frontend for LLVM.
-*   `make` - Build automation tool.
-*   `vim` - Vi IMproved, a programmer's text editor.
-*   `neovim` - Hyperextensible Vim-based text editor.
-*   `tmux` - Terminal multiplexer (run background sessions).
-*   `jq` - Lightweight and flexible command-line JSON processor.
-*   `ansible` - Automation platform (requires python).
-
-### System & Forensics
-*   `htop` - Interactive process viewer.
-*   `btop` - Resource monitor that shows usage and stats.
-*   `ncdu` - Disk usage analyzer with an ncurses interface.
-*   `proot-distro` - Install Linux distributions (Ubuntu, Debian, Kali, Arch) inside Termux.
-*   `ffmpeg` - Record, convert and stream audio and video.
-*   `yt-dlp` - Command-line video downloader (YouTube-DL fork).
-*   `imagemagick` - Edit, compose, or convert bitmap images.
-*   `fzf` - Command-line fuzzy finder.
-*   `ripgrep` - Line-oriented search tool (`rg`), faster than grep.
-*   `bat` - A `cat` clone with syntax highlighting and Git integration.
-*   `eza` - A modern, maintained replacement for `ls`.
-*   `fd` - A simple, fast and user-friendly alternative to `find`.
-*   `android-tools` - Contains `adb` and `fastboot` (yes, you can run ADB from Termux!).
-*   `strace` - Diagnostic, debugging and instructional userspace utility.
-*   `ltrace` - Library call tracer.
-*   `gdb` - The GNU Debugger.
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [Aegis Authenticator](https://github.com/beemdevelopment/Aegis) | 2FA Authenticator. | [🐙](https://github.com/beemdevelopment/Aegis) |
+| [Amarok](https://github.com/deltachat/amarok) | Hide files/apps. | [🐙](https://github.com/deltachat/amarok) |
+| [AnySoftKeyboard](https://github.com/AnySoftKeyboard/AnySoftKeyboard) | Open Source Keyboard. | [🐙](https://github.com/AnySoftKeyboard/AnySoftKeyboard) |
+| [Briar](https://github.com/briar/briar) | P2P Messaging (Tor/BT). | [🐙](https://github.com/briar/briar) |
+| [Cinny](https://github.com/ajbura/cinny) | Matrix Client. | [🐙](https://github.com/ajbura/cinny) |
+| [Cromite](https://github.com/uazo/cromite) | Bromite fork (Chromium). | [🐙](https://github.com/uazo/cromite) |
+| [Element](https://github.com/vector-im/element-android) | Matrix Client. | [🐙](https://github.com/vector-im/element-android) |
+| [Etar](https://github.com/Etar-Group/Etar-Calendar) | FOSS Calendar. | [🐙](https://github.com/Etar-Group/Etar-Calendar) |
+| [FairEmail](https://github.com/M66B/FairEmail) | Privacy email client. | [🐙](https://github.com/M66B/FairEmail) |
+| [Fedilab](https://codeberg.org/tom79/Fedilab) | Mastodon Client. | [🌐](https://codeberg.org/tom79/Fedilab) |
+| [Hacker's Keyboard](https://github.com/klausw/hackerskeyboard) | Full PC Keyboard. | [🐙](https://github.com/klausw/hackerskeyboard) |
+| [Insular](https://gitlab.com/secure-system/Insular) | Shelter fork. | [🦊](https://gitlab.com/secure-system/Insular) |
+| [K-9 Mail](https://github.com/thunderbird/thunderbird-android) | Advanced Email Client. | [🐙](https://github.com/thunderbird/thunderbird-android) |
+| [KeePassDX](https://github.com/KeePassDX/KeePassDX) | Password Manager. | [🐙](https://github.com/KeePassDX/KeePassDX) |
+| [LibreTube](https://github.com/libre-tube/LibreTube) | Piped Client. | [🐙](https://github.com/libre-tube/LibreTube) |
+| [MPV](https://github.com/mpv-android/mpv-android) | Media Player. | [🐙](https://github.com/mpv-android/mpv-android) |
+| [Mull](https://github.com/DivestOS/Mull-Fenix) | Privacy hardened Firefox. | [🐙](https://github.com/DivestOS/Mull-Fenix) |
+| [NewPipe](https://github.com/TeamNewPipe/NewPipe) | Privacy YouTube. | [🐙](https://github.com/TeamNewPipe/NewPipe) |
+| [OpenKeychain](https://github.com/open-keychain/open-keychain) | PGP implementation. | [🐙](https://github.com/open-keychain/open-keychain) |
+| [OpenTasks](https://github.com/dmfs/opentasks) | Task manager. | [🐙](https://github.com/dmfs/opentasks) |
+| [Orbot](https://github.com/guardianproject/orbot) | Tor Proxy. | [🐙](https://github.com/guardianproject/orbot) |
+| [Organic Maps](https://github.com/organicmaps/organicmaps) | Privacy Maps. | [🐙](https://github.com/organicmaps/organicmaps) |
+| [OsmAnd](https://github.com/osmandapp/Osmand) | Offline Maps. | [🐙](https://github.com/osmandapp/Osmand) |
+| [Password Store](https://github.com/android-password-store/Android-Password-Store) | Pass client. | [🐙](https://github.com/android-password-store/Android-Password-Store) |
+| [QKSMS](https://github.com/moezbhatti/qksms) | FOSS SMS. | [🐙](https://github.com/moezbhatti/qksms) |
+| [SchildiChat](https://github.com/SchildiChat/SchildiChat-android) | Matrix Client. | [🐙](https://github.com/SchildiChat/SchildiChat-android) |
+| [Scrambled Exif](https://gitlab.com/juanitobananas/scrambled-exif) | Remove image metadata. | [🦊](https://gitlab.com/juanitobananas/scrambled-exif) |
+| [Session](https://github.com/oxen-io/session-android) | Private Messenger. | [🐙](https://github.com/oxen-io/session-android) |
+| [Shelter](https://github.com/PeterCxy/Shelter) | Isolate apps (Work Profile). | [🐙](https://github.com/PeterCxy/Shelter) |
+| [Signal](https://github.com/signalapp/Signal-Android) | Encrypted Messaging. | [🐙](https://github.com/signalapp/Signal-Android) |
+| [Silence](https://git.silence.dev/Silence/Silence-Android) | Encrypted SMS. | [🦊](https://git.silence.dev/Silence/Silence-Android) |
+| [Simple Calendar](https://github.com/SimpleMobileTools/Simple-Calendar) | No-spy Calendar. | [🐙](https://github.com/SimpleMobileTools/Simple-Calendar) |
+| [Simple SMS](https://github.com/SimpleMobileTools/Simple-SMS-Messenger) | Lightweight SMS. | [🐙](https://github.com/SimpleMobileTools/Simple-SMS-Messenger) |
+| [Tor Browser](https://www.torproject.org/download/#android) | Tor Browser. | [🌐](https://www.torproject.org/download/#android) |
+| [Transportr](https://github.com/grote/Transportr) | Public Transport. | [🐙](https://github.com/grote/Transportr) |
+| [Tusky](https://github.com/tuskyapp/Tusky) | Mastodon Client. | [🐙](https://github.com/tuskyapp/Tusky) |
+| [VLC](https://github.com/videolan/vlc-android) | Media Player. | [🐙](https://github.com/videolan/vlc-android) |
 
 </details>
 
----
+### 📂 Reverse Engineering & Analysis
 
-## 14. The Root Ecosystem
-*Modules for Magisk, KernelSU, and Zygisk. These reshape the OS itself.*
+<details><summary>View 16 Apps</summary>
 
-- **[LSPosed](https://github.com/LSPosed/LSPosed)**
-  - **Why SysAdmin:** The Xposed Framework successor. Hooks into system processes to modify behavior on the fly without touching APKs.
-- **[Shamiko](https://github.com/LSPosed/Shamiko)**
-  - **Why SysAdmin:** Hides Zygisk (Root) traces from apps that detect it. Essential for banking/enterprise apps.
-- **[PlayIntegrityFix](https://github.com/chiteroman/PlayIntegrityFix)**
-  - **Why SysAdmin:** Fixes Google's Play Integrity API (SafetyNet) to allow running security-sensitive apps on rooted devices.
-- **[Tricky Store](https://github.com/5ec1cff/TrickyStore)**
-  - **Why SysAdmin:** Uses a hardware-backed keystore spoofing technique to pass strong integrity checks on TEE-broken devices.
-- **[Zygisk-Assistant](https://github.com/snake-4/Zygisk-Assistant)**
-  - **Why SysAdmin:** Hides root for KernelSU, Magisk, and APatch. Works alongside other hiding modules for maximum stealth.
-- **[Bootloop Saver](https://github.com/HuskyDG/BootloopSaver)**
-  - **Why SysAdmin:** Automatically disables all Magisk modules if the device fails to boot, preventing a factory reset.
 
----
-
-## 15. Pocket Servers
-*Turn your device into a file, web, or media host.*
-
-- **[Primitive FTPd](https://github.com/primftpd/primftpd)**
-  - **Why SysAdmin:** Simple, robust SFTP and FTP server. Supports public key authentication for secure automated transfers.
-- **[Alist](https://github.com/alist-org/alist)**
-  - **Why SysAdmin:** A file list program that aggregates multiple storages (S3, GDrive, Local) into a single WebDAV/HTTP interface. Runs via Termux.
-- **[Material Files](https://github.com/zhanghai/MaterialFiles)**
-  - **Why SysAdmin:** Contains a built-in FTP server to quickly share local storage files over WiFi.
-
----
-
-## 16. Forensics & Reverse Engineering
-*Tools for analyzing files, firmware, and binaries.*
-
-<details>
-<summary><b>🔻 Click to expand Forensics Tools</b></summary>
-
-*   `radare2` - (Termux) Advanced command-line hex editor, disassembler and debugger.
-*   `binwalk` - (Termux) Firmware analysis tool.
-*   `sleuthkit` - (Termux) Library and collection of command line tools for investigating disk images.
-*   `exiftool` - (Termux) Read, write and edit metadata.
-*   `hexedit` - (Termux) View and edit files in hexadecimal or in ASCII.
-*   `testdisk` - (Termux) Recover lost partitions and fix boot sectors.
-*   `photorec` - (Termux) File data recovery software designed to recover lost files including video, documents and archives.
-*   `steghide` - (Termux) Steganography program that is able to hide data in various kinds of image- and audio-files.
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [APK Editor](https://github.com/REAndroid/APKEditor) | Edit APKs. | [🐙](https://github.com/REAndroid/APKEditor) |
+| [App Manager](https://github.com/MuntashirAkon/AppManager) | Package manager & viewer. | [🐙](https://github.com/MuntashirAkon/AppManager) |
+| [ClassyShark3xodus](https://github.com/borisf/ClassyShark3xodus) | Scan APK for trackers. | [🐙](https://github.com/borisf/ClassyShark3xodus) |
+| [Current Activity](https://github.com/Dizware/CurrentActivity) | Show current activity class. | [🐙](https://github.com/Dizware/CurrentActivity) |
+| [Dev Tools](https://github.com/Trinea/android-common) | Developer tools. | [🐙](https://github.com/Trinea/android-common) |
+| [Frida](https://frida.re/) | Dynamic instrumentation (Termux). | [💻](https://frida.re/) |
+| [Ghidra](https://ghidra-sre.org/) | SRE Suite (View on PC). | [🌐](https://ghidra-sre.org/) |
+| [HTTP Canary](https://play.google.com/store/apps/details?id=com.guoshi.httpcanary) | HTTP Sniffer/Injector. | [▶️](https://play.google.com/store/apps/details?id=com.guoshi.httpcanary) |
+| [Inure](https://github.com/Hamza417/Inure) | App manager & analyzer. | [🐙](https://github.com/Hamza417/Inure) |
+| [LibChecker](https://github.com/zhaobozhen/LibChecker) | View app libraries/arch. | [🐙](https://github.com/zhaobozhen/LibChecker) |
+| [Logcat Reader](https://github.com/nolanlawson/Catlog) | View System Logs. | [🐙](https://github.com/nolanlawson/Catlog) |
+| [ManifestViewer](https://github.com/MuntashirAkon/ManifestViewer) | View AndroidManifest.xml. | [🐙](https://github.com/MuntashirAkon/ManifestViewer) |
+| [MatLog](https://github.com/plusCubed/matlog) | Material Logcat. | [🐙](https://github.com/plusCubed/matlog) |
+| [Reqable](https://github.com/reqable/reqable-app) | HTTP Debugging Proxy. | [🐙](https://github.com/reqable/reqable-app) |
+| [ShowJava](https://github.com/niranjan94/show-java) | Decompiler (JADX). | [🐙](https://github.com/niranjan94/show-java) |
+| [Skit](https://play.google.com/store/apps/details?id=com.pavelrekun.skit) | App details viewer. | [▶️](https://play.google.com/store/apps/details?id=com.pavelrekun.skit) |
 
 </details>
 
----
+### 📂 Root & System Internals
 
-## 17. Advanced Termux Add-ons
-*Official plugins to extend Termux functionality.*
+<details><summary>View 24 Apps</summary>
 
-- **[Termux:API](https://github.com/termux/termux-api)**
-  - **Why SysAdmin:** Exposes Android API (Battery, Camera, SMS, Location) to CLI scripts.
-- **[Termux:Widget](https://github.com/termux/termux-widget)**
-  - **Why SysAdmin:** Run scripts directly from the home screen launcher without opening the terminal.
-- **[Termux:Boot](https://github.com/termux/termux-boot)**
-  - **Why SysAdmin:** Execute scripts automatically when the device boots up.
-- **[Termux:Styling](https://github.com/termux/termux-styling)**
-  - **Why SysAdmin:** Customize the terminal font and color scheme for better readability.
 
----
-
-## 18. The Mega-Repos & Linux
-*Access to 5,000+ Verified FOSS Apps. Add these to your F-Droid client.*
-
-- **[IzzyOnDroid](https://apt.izzysoft.de/fdroid/index.php)**
-  - **Why SysAdmin:** A massive repository of FOSS apps that aren't yet on the official F-Droid repo. Contains bleeding-edge and niche tools.
-- **[DivestOS Official](https://divestos.org/)**
-  - **Why SysAdmin:** Highly vetted repo containing privacy-hardened versions of popular apps (Mull, Mulch, Hypatia).
-- **[Nix-on-Droid](https://github.com/nix-community/nix-on-droid)**
-  - **Why SysAdmin:** Installs the Nix package manager on Android. Gives access to the vast Nixpkgs collection (thousands of Linux tools) without root.
-- **[Kali NetHunter Store](https://store.nethunter.com/)**
-  - **Why SysAdmin:** The official app store for Kali NetHunter. Provides specialized security research, pentesting, and forensics tools.
-- **[Guardian Project](https://guardianproject.info/)**
-  - **Why SysAdmin:** Focused on privacy and security apps (Orbot, Onion Browser, Haven) for journalists and activists.
-
----
-
-## 19. The "Kill List" Script
-
-This section contains ADB commands to debloat common OEM garbage without root.
-**Warning:** Verify package names before running.
-
-<details>
-<summary><b>🔻 Click to expand the Kill List</b></summary>
-
-### How to use
-1. Connect via ADB: `adb shell`
-2. Copy and paste the relevant block.
-
-#### Generic / Google
-```bash
-pm uninstall --user 0 com.google.android.apps.tachyon # Duo
-pm uninstall --user 0 com.google.android.music # Google Music
-pm uninstall --user 0 com.google.android.videos # Play Movies
-pm uninstall --user 0 com.google.android.apps.subscriptions.red # Google One
-```
-
-#### Xiaomi (MIUI/HyperOS)
-```bash
-pm uninstall --user 0 com.miui.daemon # MIUI Daemon (Analytics)
-pm uninstall --user 0 com.miui.analytics
-pm uninstall --user 0 com.miui.msa.global # MSA (Main Ad Service)
-pm uninstall --user 0 com.xiaomi.midrop # ShareMe
-pm uninstall --user 0 com.miui.cloudservice
-```
-
-#### Facebook / Meta
-```bash
-pm uninstall --user 0 com.facebook.katana # App
-pm uninstall --user 0 com.facebook.system # Installer
-pm uninstall --user 0 com.facebook.appmanager # App Manager
-pm uninstall --user 0 com.facebook.services
-```
-
-#### Samsung
-```bash
-pm uninstall --user 0 com.samsung.android.app.tips
-pm uninstall --user 0 com.samsung.android.aremoji
-pm uninstall --user 0 com.sec.android.app.sbrowser # Samsung Internet
-```
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [App Ops](https://github.com/RikkaApps/AppOps) | Permission manager. | [🐙](https://github.com/RikkaApps/AppOps) |
+| [Castro](https://github.com/Pavel-Rekun/Castro) | System Information. | [🐙](https://github.com/Pavel-Rekun/Castro) |
+| [Device Info HW](https://github.com/anodsplace/device-info-hw) | Hardware details. | [🐙](https://github.com/anodsplace/device-info-hw) |
+| [Dhizuku](https://github.com/iam1412/Dhizuku) | Device Owner APIs. | [🐙](https://github.com/iam1412/Dhizuku) |
+| [Franco Kernel Manager](https://play.google.com/store/apps/details?id=com.franco.kernel) | Kernel tuner. | [▶️](https://play.google.com/store/apps/details?id=com.franco.kernel) |
+| [GPSTest](https://github.com/barbeau/gpstest) | GNSS Testing. | [🐙](https://github.com/barbeau/gpstest) |
+| [Hail](https://github.com/aistra0528/Hail) | Freeze apps. | [🐙](https://github.com/aistra0528/Hail) |
+| [LSPosed](https://github.com/LSPosed/LSPosed) | Xposed Framework. | [🐙](https://github.com/LSPosed/LSPosed) |
+| [Magisk](https://github.com/topjohnwu/Magisk) | Root solution. | [🐙](https://github.com/topjohnwu/Magisk) |
+| [Material Files](https://github.com/zhanghai/MaterialFiles) | Open source file manager. | [🐙](https://github.com/zhanghai/MaterialFiles) |
+| [MixPlorer](https://forum.xda-developers.com/t/mixplorer-q-a-and-faq-user-manual.3308582/) | File Manager. | [📝](https://forum.xda-developers.com/t/mixplorer-q-a-and-faq-user-manual.3308582/) |
+| [Neo Backup](https://github.com/NeoApplications/Neo-Backup) | Backup apps + data. | [🐙](https://github.com/NeoApplications/Neo-Backup) |
+| [OAndBackupX](https://github.com/machiav3lli/oandbackupx) | Backup solution. | [🐙](https://github.com/machiav3lli/oandbackupx) |
+| [Permission Pilot](https://github.com/MuntashirAkon/PermissionPilot) | Permission manager. | [🐙](https://github.com/MuntashirAkon/PermissionPilot) |
+| [Root Verifier](https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier) | Verify Root. | [▶️](https://play.google.com/store/apps/details?id=com.abcdjdj.rootverifier) |
+| [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) | System cleaner. | [🐙](https://github.com/d4rken-org/sdmaid-se) |
+| [Safetynet Helper](https://play.google.com/store/apps/details?id=com.scottyab.safetynet.sample) | Check Integrity. | [▶️](https://play.google.com/store/apps/details?id=com.scottyab.safetynet.sample) |
+| [SatStat](https://github.com/mvglasow/satstat) | GPS/Sensor Status. | [🐙](https://github.com/mvglasow/satstat) |
+| [Shizuku](https://github.com/RikkaApps/Shizuku) | System APIs without root. | [🐙](https://github.com/RikkaApps/Shizuku) |
+| [SmartPack Kernel Manager](https://github.com/SmartPack/SmartPack-Kernel-Manager) | Kernel manager. | [🐙](https://github.com/SmartPack/SmartPack-Kernel-Manager) |
+| [SuperUser](https://f-droid.org/packages/com.noshufou.android.su) | Old School Root. | [🛡️](https://f-droid.org/packages/com.noshufou.android.su) |
+| [SysLog](https://github.com/Tortel/SysLog) | Capture logcat/dmesg. | [🐙](https://github.com/Tortel/SysLog) |
+| [Termux:Root](https://github.com/termux/termux-root-packages) | Root packages. | [🐙](https://github.com/termux/termux-root-packages) |
+| [YubiClip](https://github.com/Yubico/yubiclip-android) | YubiKey Clipboard. | [🐙](https://github.com/Yubico/yubiclip-android) |
 
 </details>
 
----
+### 📂 Hardware Hacking (SDR/NFC/USB)
 
-## 20. Contribute
+<details><summary>View 11 Apps</summary>
 
-This vault is maintained by the open source community. We want **high quality, unabandoned, FOSS** tools.
 
-1.  Fork the repo.
-2.  Add your tool to the appropriate category.
-3.  **Strict Requirement:** You must include a "Why SysAdmin:" bullet point explaining the technical utility.
-4.  Submit a Pull Request.
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [Flipper Mobile App](https://github.com/flipperdevices/Flipper-Android-App) | Flipper Zero Companion. | [🐙](https://github.com/flipperdevices/Flipper-Android-App) |
+| [GlitchTip](https://github.com/glitchtip/glitchtip-android) | Hardware glitching. | [🐙](https://github.com/glitchtip/glitchtip-android) |
+| [MagicRF](https://play.google.com/store/apps/details?id=com.magicrf.magicrf) | SDR Tools. | [▶️](https://play.google.com/store/apps/details?id=com.magicrf.magicrf) |
+| [Mifare Classic Tool](https://github.com/ikarus23/MifareClassicTool) | Clone Mifare cards. | [🐙](https://github.com/ikarus23/MifareClassicTool) |
+| [NFC TagInfo](https://play.google.com/store/apps/details?id=com.nxp.taginfolite) | NXP Tag Info. | [▶️](https://play.google.com/store/apps/details?id=com.nxp.taginfolite) |
+| [NFC Tools](https://github.com/wakdev/nfc-tools) | Read/Write NFC. | [🐙](https://github.com/wakdev/nfc-tools) |
+| [RF Analyzer](https://github.com/demantz/RFAnalyzer) | SDR Analyzer. | [🐙](https://github.com/demantz/RFAnalyzer) |
+| [SDR Touch](https://play.google.com/store/apps/details?id=marto.androsdr2) | SDR Receiver. | [▶️](https://play.google.com/store/apps/details?id=marto.androsdr2) |
+| [Serial USB Terminal](https://github.com/kai-morich/SimpleUsbTerminal) | Serial console. | [🐙](https://github.com/kai-morich/SimpleUsbTerminal) |
+| [USB Camera](https://play.google.com/store/apps/details?id=com.shenyaocn.android.usbcamera) | UVC Camera viewer. | [▶️](https://play.google.com/store/apps/details?id=com.shenyaocn.android.usbcamera) |
+| [Walrus](https://github.com/TeamWalrus/Walrus) | Proxmark3 Android Client. | [🐙](https://github.com/TeamWalrus/Walrus) |
 
----
-*Maintained with ❤️ by the Android SysAdmin Community.*
+</details>
+
+### 📂 Remote Management
+
+<details><summary>View 8 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [AVNC](https://github.com/gomo/AVNC) | VNC Client. | [🐙](https://github.com/gomo/AVNC) |
+| [AirDroid](https://play.google.com/store/apps/details?id=com.sand.airdroid) | Remote manager. | [▶️](https://play.google.com/store/apps/details?id=com.sand.airdroid) |
+| [AnyDesk](https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid) | Remote Desktop. | [▶️](https://play.google.com/store/apps/details?id=com.anydesk.anydeskandroid) |
+| [KDE Connect](https://github.com/KDE/kdeconnect-android) | Phone-PC Integration. | [🐙](https://github.com/KDE/kdeconnect-android) |
+| [RustDesk](https://github.com/rustdesk/rustdesk) | Remote Desktop. | [🐙](https://github.com/rustdesk/rustdesk) |
+| [TeamViewer](https://play.google.com/store/apps/details?id=com.teamviewer.teamviewer.market.mobile) | Remote Desktop. | [▶️](https://play.google.com/store/apps/details?id=com.teamviewer.teamviewer.market.mobile) |
+| [bVNC](https://github.com/iiordanov/remote-desktop-clients) | VNC Viewer. | [🐙](https://github.com/iiordanov/remote-desktop-clients) |
+| [scrcpy](https://github.com/Genymobile/scrcpy) | Control Android from PC. | [🐙](https://github.com/Genymobile/scrcpy) |
+
+</details>
+
+### 📂 Automation & Sync
+
+<details><summary>View 5 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [Easer](https://github.com/renyuneyun/Easer) | Automation tool. | [🐙](https://github.com/renyuneyun/Easer) |
+| [FolderSync](https://play.google.com/store/apps/details?id=dk.tacit.android.foldersync.lite) | Sync tool. | [▶️](https://play.google.com/store/apps/details?id=dk.tacit.android.foldersync.lite) |
+| [Nextcloud](https://github.com/nextcloud/android) | Cloud Sync. | [🐙](https://github.com/nextcloud/android) |
+| [Syncthing](https://github.com/syncthing/syncthing-android) | P2P File Sync. | [🐙](https://github.com/syncthing/syncthing-android) |
+| [Syncthing-Fork](https://github.com/Catfriend1/syncthing-android) | Enhanced Syncthing. | [🐙](https://github.com/Catfriend1/syncthing-android) |
+
+</details>
+
+### 📂 Development
+
+<details><summary>View 11 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [AIDE](https://play.google.com/store/apps/details?id=com.aide.ui) | Java/C++ IDE. | [▶️](https://play.google.com/store/apps/details?id=com.aide.ui) |
+| [Acode](https://github.com/deadlyjack/Acode) | Code Editor. | [🐙](https://github.com/deadlyjack/Acode) |
+| [FasHub](https://github.com/slidenerd/FasHub) | GitHub Client. | [🐙](https://github.com/slidenerd/FasHub) |
+| [GitHub](https://github.com/github/android) | Official Client. | [🐙](https://github.com/github/android) |
+| [GitNex](https://github.com/GitNex/GitNex) | Gitea Client. | [🐙](https://github.com/GitNex/GitNex) |
+| [OctoDroid](https://github.com/CasperVerswijvelt/OctoDroid) | GitHub Client. | [🐙](https://github.com/CasperVerswijvelt/OctoDroid) |
+| [Pydroid 3](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3) | Python IDE. | [▶️](https://play.google.com/store/apps/details?id=ru.iiec.pydroid3) |
+| [Spck Editor](https://play.google.com/store/apps/details?id=io.spck) | JS/HTML Editor. | [▶️](https://play.google.com/store/apps/details?id=io.spck) |
+| [Squircle IDE](https://github.com/massivemadness/Squircle-IDE) | Multi-language IDE. | [🐙](https://github.com/massivemadness/Squircle-IDE) |
+| [Termux:API](https://github.com/termux/termux-api) | API Bridge. | [🐙](https://github.com/termux/termux-api) |
+| [mgit](https://github.com/maks/mgit) | Git Client. | [🐙](https://github.com/maks/mgit) |
+
+</details>
+
+### 📂 Package Managers & Repos
+
+<details><summary>View 9 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [APKMirror Installer](https://play.google.com/store/apps/details?id=com.apkmirror.helper.prod) | APK Installer. | [▶️](https://play.google.com/store/apps/details?id=com.apkmirror.helper.prod) |
+| [APKPure](https://apkpure.com/apkpure-app.html) | APK Downloader. | [🌐](https://apkpure.com/apkpure-app.html) |
+| [Aurora Droid](https://gitlab.com/AuroraOSS/AuroraDroid) | F-Droid Client. | [🦊](https://gitlab.com/AuroraOSS/AuroraDroid) |
+| [Aurora Store](https://gitlab.com/AuroraOSS/AuroraStore) | Play Store Client. | [🦊](https://gitlab.com/AuroraOSS/AuroraStore) |
+| [Droid-ify](https://github.com/Droid-ify/client) | Material F-Droid Client. | [🐙](https://github.com/Droid-ify/client) |
+| [F-Droid](https://gitlab.com/fdroid/fdroidclient) | FOSS App Store. | [🦊](https://gitlab.com/fdroid/fdroidclient) |
+| [Kali NetHunter Store](https://store.nethunter.com/) | Security App Store. | [🌐](https://store.nethunter.com/) |
+| [Neo Store](https://github.com/NeoApplications/Neo-Store) | F-Droid Client. | [🐙](https://github.com/NeoApplications/Neo-Store) |
+| [Obtainium](https://github.com/ImranR98/Obtainium) | Get updates from Source. | [🐙](https://github.com/ImranR98/Obtainium) |
+
+</details>
+
+### 📂 Firefox Add-ons (Privacy)
+
+<details><summary>View 15 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [Bitwarden](https://addons.mozilla.org/android/addon/bitwarden-password-manager/) | Password manager. | [🌐](https://addons.mozilla.org/android/addon/bitwarden-password-manager/) |
+| [ClearURLs](https://addons.mozilla.org/android/addon/clearurls/) | Clean URLs. | [🌐](https://addons.mozilla.org/android/addon/clearurls/) |
+| [Cookie AutoDelete](https://addons.mozilla.org/android/addon/cookie-autodelete/) | Clean cookies. | [🌐](https://addons.mozilla.org/android/addon/cookie-autodelete/) |
+| [Dark Reader](https://addons.mozilla.org/android/addon/darkreader/) | Dark mode. | [🌐](https://addons.mozilla.org/android/addon/darkreader/) |
+| [Decentraleyes](https://addons.mozilla.org/android/addon/decentraleyes/) | Local CDN. | [🌐](https://addons.mozilla.org/android/addon/decentraleyes/) |
+| [FoxyProxy Standard](https://addons.mozilla.org/android/addon/foxyproxy-standard/) | Proxy manager. | [🌐](https://addons.mozilla.org/android/addon/foxyproxy-standard/) |
+| [KeePassXC-Browser](https://addons.mozilla.org/android/addon/keepassxc-browser/) | Pass integration. | [🌐](https://addons.mozilla.org/android/addon/keepassxc-browser/) |
+| [NoScript](https://addons.mozilla.org/android/addon/noscript/) | Script blocker. | [🌐](https://addons.mozilla.org/android/addon/noscript/) |
+| [Privacy Badger](https://addons.mozilla.org/android/addon/privacy-badger17/) | Tracker blocker. | [🌐](https://addons.mozilla.org/android/addon/privacy-badger17/) |
+| [Privacy Possum](https://addons.mozilla.org/android/addon/privacy-possum/) | Anti-tracking. | [🌐](https://addons.mozilla.org/android/addon/privacy-possum/) |
+| [Search by Image](https://addons.mozilla.org/android/addon/search_by_image/) | Reverse image search. | [🌐](https://addons.mozilla.org/android/addon/search_by_image/) |
+| [Tampermonkey](https://addons.mozilla.org/android/addon/tampermonkey/) | User scripts. | [🌐](https://addons.mozilla.org/android/addon/tampermonkey/) |
+| [User-Agent Switcher](https://addons.mozilla.org/android/addon/user-agent-string-switcher/) | Spoof UA. | [🌐](https://addons.mozilla.org/android/addon/user-agent-string-switcher/) |
+| [Video Background Play Fix](https://addons.mozilla.org/android/addon/video-background-play-fix/) | Background video. | [🌐](https://addons.mozilla.org/android/addon/video-background-play-fix/) |
+| [uBlock Origin](https://addons.mozilla.org/android/addon/ublock-origin/) | Ad/Tracker blocker. | [🌐](https://addons.mozilla.org/android/addon/ublock-origin/) |
+
+</details>
+
+### 📂 Magisk & LSPosed Modules
+
+<details><summary>View 15 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [ADB & Fastboot for Android NDK](https://github.com/Magisk-Modules-Repo/adb-ndk) | ADB tools. | [🐙](https://github.com/Magisk-Modules-Repo/adb-ndk) |
+| [Acc (Advanced Charging Controller)](https://github.com/VR-25/acc) | Battery health. | [🐙](https://github.com/VR-25/acc) |
+| [Bootloop Protector](https://github.com/Magisk-Modules-Repo/bootloop-protector) | Rescue module. | [🐙](https://github.com/Magisk-Modules-Repo/bootloop-protector) |
+| [Busybox for Android NDK](https://github.com/Magisk-Modules-Repo/busybox-ndk) | Binary tools. | [🐙](https://github.com/Magisk-Modules-Repo/busybox-ndk) |
+| [Disable FLAG_SECURE](https://github.com/LSPosed/LSPosed.github.io/releases) | Allow screenshots. | [🐙](https://github.com/LSPosed/LSPosed.github.io/releases) |
+| [GravityBox](https://github.com/GravityBox/GravityBox) | UI/UX Tweaks. | [🐙](https://github.com/GravityBox/GravityBox) |
+| [Hide My Applist](https://github.com/Dr-TSNG/Hide-My-Applist) | Hide apps. | [🐙](https://github.com/Dr-TSNG/Hide-My-Applist) |
+| [Magisk Bootloop Saver](https://github.com/husson19/magisk-bootloop-saver) | Rescue module. | [🐙](https://github.com/husson19/magisk-bootloop-saver) |
+| [MagiskHide Props Config](https://github.com/Magisk-Modules-Repo/MagiskHidePropsConf) | SafetyNet fix. | [🐙](https://github.com/Magisk-Modules-Repo/MagiskHidePropsConf) |
+| [SSLUnpinning](https://github.com/ac-pm/SSLUnpinning_Xposed) | Cert pinning bypass. | [🐙](https://github.com/ac-pm/SSLUnpinning_Xposed) |
+| [Shamiko](https://github.com/LSPosed/LSPosed.github.io/releases) | Hide Root. | [🐙](https://github.com/LSPosed/LSPosed.github.io/releases) |
+| [Systemless Hosts](https://github.com/gloeyisk/systemless-hosts) | AdBlocking. | [🐙](https://github.com/gloeyisk/systemless-hosts) |
+| [Universal SafetyNet Fix](https://github.com/kdrag0n/safetynet-fix) | SafetyNet fix. | [🐙](https://github.com/kdrag0n/safetynet-fix) |
+| [XPrivacyLua](https://github.com/M66B/XPrivacyLua) | Privacy manager. | [🐙](https://github.com/M66B/XPrivacyLua) |
+| [Zygisk - LSPosed](https://github.com/LSPosed/LSPosed) | Xposed Framework. | [🐙](https://github.com/LSPosed/LSPosed) |
+
+</details>
+
+### 📂 Termux Packages (CLI Tools)
+
+<details><summary>View 121 Apps</summary>
+
+
+| App Name | Description | Source |
+| :--- | :--- | :---: |
+| [aircrack-ng](https://github.com/aircrack-ng/aircrack-ng) | WiFi auditing. | [💻](https://github.com/aircrack-ng/aircrack-ng) |
+| [alpine](https://alpineapp.email/) | CLI Email. | [💻](https://alpineapp.email/) |
+| [amass](https://github.com/owasp-amass/amass) | Attack surface. | [💻](https://github.com/owasp-amass/amass) |
+| [apache2](https://httpd.apache.org/) | Web Server. | [💻](https://httpd.apache.org/) |
+| [awk](https://www.gnu.org/software/gawk/) | Pattern scanning. | [💻](https://www.gnu.org/software/gawk/) |
+| [bat](https://github.com/sharkdp/bat) | Modern cat. | [💻](https://github.com/sharkdp/bat) |
+| [bettercap](https://github.com/bettercap/bettercap) | MITM tool. | [💻](https://github.com/bettercap/bettercap) |
+| [binwalk](https://github.com/ReFirmLabs/binwalk) | Firmware analysis. | [💻](https://github.com/ReFirmLabs/binwalk) |
+| [bzip2](https://www.sourceware.org/bzip2/) | Compressor. | [💻](https://www.sourceware.org/bzip2/) |
+| [clang](https://clang.llvm.org/) | Compiler. | [💻](https://clang.llvm.org/) |
+| [cmake](https://cmake.org/) | Build tool. | [💻](https://cmake.org/) |
+| [coreutils](https://www.gnu.org/software/coreutils/) | Basic tools. | [💻](https://www.gnu.org/software/coreutils/) |
+| [curl](https://curl.se) | URL transfer. | [💻](https://curl.se) |
+| [diffutils](https://www.gnu.org/software/diffutils/) | File comparison. | [💻](https://www.gnu.org/software/diffutils/) |
+| [dnsutils](https://www.isc.org/bind/) | DNS tools. | [💻](https://www.isc.org/bind/) |
+| [ecryptfs](https://www.ecryptfs.org) | Encryption. | [💻](https://www.ecryptfs.org) |
+| [elinks](http://elinks.or.cz/) | Text Browser. | [💻](http://elinks.or.cz/) |
+| [emacs](https://www.gnu.org/software/emacs/) | Text editor. | [💻](https://www.gnu.org/software/emacs/) |
+| [exa](https://github.com/ogham/exa) | Modern ls. | [💻](https://github.com/ogham/exa) |
+| [fd](https://github.com/sharkdp/fd) | Modern find. | [💻](https://github.com/sharkdp/fd) |
+| [ffmpeg](https://ffmpeg.org) | Video processing. | [💻](https://ffmpeg.org) |
+| [ffuf](https://github.com/ffuf/ffuf) | Web fuzzer. | [💻](https://github.com/ffuf/ffuf) |
+| [file](https://www.darwinsys.com/file/) | File type guesser. | [💻](https://www.darwinsys.com/file/) |
+| [findutils](https://www.gnu.org/software/findutils/) | Find files. | [💻](https://www.gnu.org/software/findutils/) |
+| [fish](https://fishshell.com) | Fish Shell. | [💻](https://fishshell.com) |
+| [fzf](https://github.com/junegunn/fzf) | Fuzzy finder. | [💻](https://github.com/junegunn/fzf) |
+| [gcc](https://gcc.gnu.org/) | Compiler. | [💻](https://gcc.gnu.org/) |
+| [git](https://git-scm.com) | Version control. | [💻](https://git-scm.com) |
+| [gobuster](https://github.com/OJ/gobuster) | Directory scanner. | [💻](https://github.com/OJ/gobuster) |
+| [golang](https://go.dev/) | Language. | [💻](https://go.dev/) |
+| [gpg](https://gnupg.org) | Encryption. | [💻](https://gnupg.org) |
+| [grep](https://www.gnu.org/software/grep/) | Pattern matching. | [💻](https://www.gnu.org/software/grep/) |
+| [gzip](https://www.gnu.org/software/gzip/) | Compressor. | [💻](https://www.gnu.org/software/gzip/) |
+| [helix](https://helix-editor.com/) | Text editor. | [💻](https://helix-editor.com/) |
+| [htop](https://htop.dev) | Process viewer. | [💻](https://htop.dev) |
+| [httpx](https://github.com/projectdiscovery/httpx) | HTTP toolkit. | [💻](https://github.com/projectdiscovery/httpx) |
+| [hydra](https://github.com/vanhauser-thc/thc-hydra) | Login cracker. | [💻](https://github.com/vanhauser-thc/thc-hydra) |
+| [imagemagick](https://imagemagick.org) | Image manipulation. | [💻](https://imagemagick.org) |
+| [iproute2](https://wiki.linuxfoundation.org/networking/iproute2) | Networking tools. | [💻](https://wiki.linuxfoundation.org/networking/iproute2) |
+| [john](https://www.openwall.com/john/) | Password cracker. | [💻](https://www.openwall.com/john/) |
+| [jq](https://stedolan.github.io/jq/) | JSON processor. | [💻](https://stedolan.github.io/jq/) |
+| [kakoune](https://kakoune.org/) | Text editor. | [💻](https://kakoune.org/) |
+| [lazygit](https://github.com/jesseduffield/lazygit) | Git interface. | [💻](https://github.com/jesseduffield/lazygit) |
+| [less](https://www.gnu.org/software/less/) | File viewer. | [💻](https://www.gnu.org/software/less/) |
+| [lf](https://github.com/gokcehan/lf) | File manager. | [💻](https://github.com/gokcehan/lf) |
+| [lighttpd](https://www.lighttpd.net/) | Web Server. | [💻](https://www.lighttpd.net/) |
+| [ltrace](https://ltrace.org/) | Debugging. | [💻](https://ltrace.org/) |
+| [lua](https://www.lua.org/) | Language. | [💻](https://www.lua.org/) |
+| [lynx](https://lynx.invisible-island.net/) | Text Browser. | [💻](https://lynx.invisible-island.net/) |
+| [make](https://www.gnu.org/software/make/) | Build tool. | [💻](https://www.gnu.org/software/make/) |
+| [man](https://man7.org/linux/man-pages/) | Manual pages. | [💻](https://man7.org/linux/man-pages/) |
+| [mariadb](https://mariadb.org/) | Database. | [💻](https://mariadb.org/) |
+| [mc](https://midnight-commander.org/) | File manager. | [💻](https://midnight-commander.org/) |
+| [metasploit](https://github.com/rapid7/metasploit-framework) | Pentest framework. | [💻](https://github.com/rapid7/metasploit-framework) |
+| [micro](https://micro-editor.github.io/) | Text editor. | [💻](https://micro-editor.github.io/) |
+| [more](https://util-linux.kernel.org/) | File viewer. | [💻](https://util-linux.kernel.org/) |
+| [mosh](https://mosh.org/) | Mobile Shell. | [💻](https://mosh.org/) |
+| [mosquitto](https://mosquitto.org/) | MQTT Broker. | [💻](https://mosquitto.org/) |
+| [mtr](https://www.bitwizard.nl/mtr/) | Network tracer. | [💻](https://www.bitwizard.nl/mtr/) |
+| [nano](https://www.nano-editor.org/) | Text editor. | [💻](https://www.nano-editor.org/) |
+| [nasm](https://nasm.us/) | Assembler. | [💻](https://nasm.us/) |
+| [nc (netcat)](https://nc110.sourceforge.io/) | Networking swiss knife. | [💻](https://nc110.sourceforge.io/) |
+| [ncurses-utils](https://invisible-island.net/ncurses/) | Terminal UI tools. | [💻](https://invisible-island.net/ncurses/) |
+| [neofetch](https://github.com/dylanaraps/neofetch) | System info. | [💻](https://github.com/dylanaraps/neofetch) |
+| [neovim](https://neovim.io/) | Text editor. | [💻](https://neovim.io/) |
+| [net-tools](https://sourceforge.net/projects/net-tools/) | Networking tools. | [💻](https://sourceforge.net/projects/net-tools/) |
+| [nginx](https://nginx.org/) | Web Server. | [💻](https://nginx.org/) |
+| [nikto](https://github.com/sullo/nikto) | Web scanner. | [💻](https://github.com/sullo/nikto) |
+| [ninja](https://ninja-build.org/) | Build tool. | [💻](https://ninja-build.org/) |
+| [nnn](https://github.com/jarun/nnn) | File manager. | [💻](https://github.com/jarun/nnn) |
+| [nodejs](https://nodejs.org) | JavaScript runtime. | [💻](https://nodejs.org) |
+| [nuclei](https://github.com/projectdiscovery/nuclei) | Vulnerability scanner. | [💻](https://github.com/projectdiscovery/nuclei) |
+| [openssh](https://www.openssh.com) | SSH connectivity. | [💻](https://www.openssh.com) |
+| [openssl](https://www.openssl.org/) | Cryptography. | [💻](https://www.openssl.org/) |
+| [patch](https://www.gnu.org/software/patch/) | Apply diffs. | [💻](https://www.gnu.org/software/patch/) |
+| [perl](https://www.perl.org/) | Language. | [💻](https://www.perl.org/) |
+| [php](https://www.php.net/) | Language. | [💻](https://www.php.net/) |
+| [postgresql](https://www.postgresql.org/) | Database. | [💻](https://www.postgresql.org/) |
+| [procps](https://gitlab.com/procps-ng/procps) | Process tools. | [💻](https://gitlab.com/procps-ng/procps) |
+| [proot-distro](https://github.com/termux/proot-distro) | Linux distro manager. | [💻](https://github.com/termux/proot-distro) |
+| [python](https://python.org) | Python language. | [💻](https://python.org) |
+| [radare2](https://radare.org) | Reverse engineering. | [💻](https://radare.org) |
+| [ranger](https://github.com/ranger/ranger) | File manager. | [💻](https://github.com/ranger/ranger) |
+| [rclone](https://rclone.org) | Cloud sync. | [💻](https://rclone.org) |
+| [redis](https://redis.io/) | Database. | [💻](https://redis.io/) |
+| [ripgrep](https://github.com/BurntSushi/ripgrep) | Modern grep. | [💻](https://github.com/BurntSushi/ripgrep) |
+| [rizin](https://rizin.re/) | Reverse engineering. | [💻](https://rizin.re/) |
+| [routersploit](https://github.com/threat9/routersploit) | Router exploit framework. | [💻](https://github.com/threat9/routersploit) |
+| [rsync](https://rsync.samba.org) | File sync. | [💻](https://rsync.samba.org) |
+| [ruby](https://www.ruby-lang.org/en/) | Language. | [💻](https://www.ruby-lang.org/en/) |
+| [rust](https://www.rust-lang.org/) | Language. | [💻](https://www.rust-lang.org/) |
+| [sed](https://www.gnu.org/software/sed/) | Stream editor. | [💻](https://www.gnu.org/software/sed/) |
+| [sqlite](https://www.sqlite.org/) | Database. | [💻](https://www.sqlite.org/) |
+| [sqlmap](https://github.com/sqlmapproject/sqlmap) | SQL injection. | [💻](https://github.com/sqlmapproject/sqlmap) |
+| [sshpass](https://sourceforge.net/projects/sshpass/) | SSH Password. | [💻](https://sourceforge.net/projects/sshpass/) |
+| [starship](https://starship.rs/) | Shell prompt. | [💻](https://starship.rs/) |
+| [strace](https://strace.io/) | Debugging. | [💻](https://strace.io/) |
+| [subfinder](https://github.com/projectdiscovery/subfinder) | Subdomain discovery. | [💻](https://github.com/projectdiscovery/subfinder) |
+| [tar](https://www.gnu.org/software/tar/) | Archiver. | [💻](https://www.gnu.org/software/tar/) |
+| [tcpdump](https://www.tcpdump.org) | Packet capture. | [💻](https://www.tcpdump.org) |
+| [termux-elf-cleaner](https://github.com/termux/termux-elf-cleaner) | Cleanup tool. | [💻](https://github.com/termux/termux-elf-cleaner) |
+| [termux-exec](https://github.com/termux/termux-exec) | Shebang fixer. | [💻](https://github.com/termux/termux-exec) |
+| [termux-services](https://github.com/termux/termux-services) | Service manager. | [💻](https://github.com/termux/termux-services) |
+| [tig](https://github.com/jonas/tig) | Git interface. | [💻](https://github.com/jonas/tig) |
+| [tldr](https://tldr.sh/) | Man page simplifier. | [💻](https://tldr.sh/) |
+| [tmux](https://github.com/tmux/tmux) | Terminal multiplexer. | [💻](https://github.com/tmux/tmux) |
+| [tracepath](https://github.com/iputils/iputils) | Network tracer. | [💻](https://github.com/iputils/iputils) |
+| [tsu](https://github.com/cswl/tsu) | Termux SU. | [💻](https://github.com/cswl/tsu) |
+| [unzip](https://infozip.sourceforge.net/) | Archiver. | [💻](https://infozip.sourceforge.net/) |
+| [vim](https://github.com/vim/vim) | Text editor. | [💻](https://github.com/vim/vim) |
+| [w3m](https://w3m.sourceforge.net/) | Text Browser. | [💻](https://w3m.sourceforge.net/) |
+| [wget](https://www.gnu.org/software/wget/) | File retriever. | [💻](https://www.gnu.org/software/wget/) |
+| [which](https://carlowood.github.io/which/) | Locate command. | [💻](https://carlowood.github.io/which/) |
+| [whois](https://github.com/rfc1036/whois) | Domain info. | [💻](https://github.com/rfc1036/whois) |
+| [wifite](https://github.com/derv82/wifite2) | Automated WiFi auditor. | [💻](https://github.com/derv82/wifite2) |
+| [xz](https://tukaani.org/xz/) | Compressor. | [💻](https://tukaani.org/xz/) |
+| [yasm](https://yasm.tortall.net/) | Assembler. | [💻](https://yasm.tortall.net/) |
+| [yt-dlp](https://github.com/yt-dlp/yt-dlp) | Video downloader. | [💻](https://github.com/yt-dlp/yt-dlp) |
+| [zip](https://infozip.sourceforge.net/) | Archiver. | [💻](https://infozip.sourceforge.net/) |
+| [zoxide](https://github.com/ajeetdsouza/zoxide) | Smarter cd. | [💻](https://github.com/ajeetdsouza/zoxide) |
+| [zsh](https://www.zsh.org) | Z Shell. | [💻](https://www.zsh.org) |
+
+</details>
